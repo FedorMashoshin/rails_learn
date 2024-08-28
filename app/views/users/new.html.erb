@@ -1,27 +1,11 @@
-<h1>Create a New User</h1>
+<% content_for :title, "New user" %>
 
-<%= form_with model: @user, local: true do |form| %>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+<h1 class="title">Create new user</h1>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.email_field :email %>
-  </div>
+<%= render "form", user: @user %>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
+<br>
 
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Create User", class: "button is-success" %>
-  </div>
-<% end %>
+<button class="button is-link">
+  <%= link_to "Back to users", users_path%>
+</button>
