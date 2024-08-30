@@ -1,17 +1,18 @@
-<div id="<%= dom_id user %>">
-  <p>
-    <strong>Name:</strong>
-    <%= user.name %>
+<div id="<%= dom_id user %>" style="max-width: 400px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+  <h2 style="color: #333; margin-bottom: 20px;">User Details</h2>
+  
+  <p style="margin-bottom: 10px;">
+    <strong style="color: #666;">Name:</strong>
+    <span style="color: #4a4a4a;"><%= user.name %></span>
   </p>
 
-  <p>
-    <strong>Email:</strong>
-    <%= user.email %>
+  <p style="margin-bottom: 10px;">
+    <strong style="color: #666;">Email:</strong>
+    <span style="color: #4a4a4a;"><%= user.email %></span>
   </p>
 
-  <p>
-    <strong>Password digest:</strong>
-    <%= user.password_digest %>
+  <p style="margin-bottom: 10px;">
+    <strong style="color: #666;">Password:</strong>
+    <span style="color: #4a4a4a;"><%= user.password_digest %></span>
   </p>
-
 </div>

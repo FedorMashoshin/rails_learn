@@ -1,16 +1,25 @@
-<p style="color: green"><%= notice %></p>
+<% if notice %>
+  <div class="box has-background-success-light">
+    <p class="has-text-success">
+      <%= notice %>
+    </p>
+  </div>
+<% end %>
 
 <% content_for :title, "Users" %>
 
-<h1>Users</h1>
+<h1 class="title is-1 has-text-centered my-6">Users</h1>
+
+<div class="has-text-centered">
+  <%= link_to "New user", new_user_path, class: "button is-info is-large mb-4 mt-4" %>
+</div>
 
 <div id="users">
   <% @users.each do |user| %>
     <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
+      <div style="text-align: center;">
+        <%= button_to "Show this user", user, method: :get, class: "button is-primary" %>
+      </div>
   <% end %>
 </div>
 
-<%= link_to "New user", new_user_path %>
