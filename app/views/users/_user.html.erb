@@ -1,5 +1,5 @@
 <div id="<%= dom_id user %>" style="max-width: 400px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-  <h2 style="color: #333; margin-bottom: 20px;">User Details</h2>
+  <h3 class="title is-4 has-text-centered">User Details</h3>
   
   <p style="margin-bottom: 10px;">
     <strong style="color: #666;">Name:</strong>
@@ -13,6 +13,11 @@
 
   <p style="margin-bottom: 10px;">
     <strong style="color: #666;">Password:</strong>
-    <span style="color: #4a4a4a;"><%= user.password_digest %></span>
+    <span style="color: #4a4a4a; cursor: pointer;" 
+          title="<%= user.password_digest %>"
+          onmouseover="this.textContent='<%= user.password_digest %>'" 
+          onmouseout="this.textContent='********'">
+      ********
+    </span>
   </p>
 </div>
