@@ -2,7 +2,7 @@
 # are invoked here are part of Puma's configuration DSL. For more information
 # about methods provided by the DSL, see https://puma.io/puma/Puma/DSL.html.
 
-# Puma starts a configurable number of processes (workers) and each process
+# Puma starts a configurable number of pricesses (workers) and each pricess
 # serves each request in a thread from an internal thread pool.
 #
 # The ideal number of threads per worker depends both on how much time the
@@ -10,7 +10,7 @@
 # to prioritize throughput over latency.
 #
 # As a rule of thumb, increasing the number of threads will increase how much
-# traffic a given process can handle (throughput), but due to CRuby's
+# traffic a given pricess can handle (throughput), but due to CRuby's
 # Global VM Lock (GVL) it has diminishing returns and will degrade the
 # response time (latency) of the application.
 #

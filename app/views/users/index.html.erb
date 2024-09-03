@@ -10,16 +10,39 @@
 
 <h1 class="title is-1 has-text-centered my-6">Users</h1>
 
-<div class="has-text-centered">
-  <%= link_to "New user", new_user_path, class: "button is-info is-large mb-4 mt-4" %>
-</div>
 
 <div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-      <div style="text-align: center;">
-        <%= button_to "Show this user", user, method: :get, class: "button is-primary" %>
-      </div>
-  <% end %>
+  <table style="width: 100%; max-width: 800px; margin: 20px auto; border-collapse: collapse; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <thead>
+      <tr style="background-color: #4a4a4a; color: #ffffff;">
+        <th style="padding: 10px; border: 1px solid #ddd;">Name</th>
+        <th style="padding: 10px; border: 1px solid #ddd;">Email</th>
+        <th style="padding: 10px; border: 1px solid #ddd; width: 200px;">Password</th>
+        <th style="padding: 10px; border: 1px solid #ddd;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr id="<%= dom_id user %>" style="border: 1px solid #ddd;">
+          <td style="padding: 10px; color: #4a4a4a;"><%= user.name %></td>
+          <td style="padding: 10px; color: #4a4a4a;"><%= user.email %></td>
+          <td style="padding: 10px; color: #4a4a4a; cursor: pointer;" 
+              title="<%= user.password_digest %>"
+              onmouseover="this.textContent='<%= user.password_digest %>'" 
+              onmouseout="this.textContent='********'">
+            ********
+          </td>
+          <td style="padding: 10px; text-align: center;">
+            <%= link_to 'Show', user_path(user), class: 'button is-primary is-small has-text-weight-bold' %>
+            <%= link_to 'Edit', edit_user_path(user), class: 'button is-warning is-small has-text-weight-bold' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
+
+<div class="has-text-centered">
+  <%= link_to "New user", new_user_path, class: "button is-info is-medium mb-4 mt-4" %>
+</div>
