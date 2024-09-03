@@ -1,2 +1,0 @@
-class Productcd < ApplicationRecord
-end
